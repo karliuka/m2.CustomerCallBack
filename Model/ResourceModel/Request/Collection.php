@@ -40,4 +40,34 @@ class Collection extends AbstractCollection
 			'Faonni\CustomerCallBack\Model\ResourceModel\Request'
 		);
     }
+    
+    /**
+     * Add customer filter
+     *
+     * @param int|string $customerId
+     * @return $this
+     */
+    public function addCustomerFilter($customerId)
+    {
+        $this->addFilter('customer', 
+			$this->getConnection()->quoteInto('main_table.customer_id=?', $customerId), 
+			'string'
+		);
+        return $this;
+    }
+    
+    /**
+     * Add status filter
+     *
+     * @param int|string $status
+     * @return $this
+     */
+    public function addStatusFilter($status)
+    {
+        $this->addFilter('status', 
+			$this->getConnection()->quoteInto('main_table.status=?', $status), 
+			'string'
+		);
+        return $this;
+    }           
 }

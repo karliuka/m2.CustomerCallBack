@@ -36,5 +36,5 @@ class Request extends AbstractDb
     protected function _construct()
     {
         $this->_init('faonni_customercallback_request', 'request_id');
-    }
+    }    
 }

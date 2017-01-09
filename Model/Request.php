@@ -30,7 +30,22 @@ use Magento\Framework\Model\AbstractModel;
 class Request extends AbstractModel implements IdentityInterface
 {
     /**
-     * Cache tag
+     * Status new constant
+     */
+    const STATUS_NEW = 1;
+    
+    /**
+     * Status processing constant
+     */
+    const STATUS_PROCESSING = 2;
+    
+    /**
+     * Status complete constant
+     */
+    const STATUS_COMPLETE = 3;
+    	
+    /**
+     * Cache tag constant
      */	
 	const CACHE_TAG = 'FAONNI_CUSTOMERCALLBACK_REQUEST';
 	
@@ -83,5 +98,26 @@ class Request extends AbstractModel implements IdentityInterface
             $tags[] = self::CACHE_TAG . '_' . $this->getId();
         }
         return $tags;        
-    }	
+    }
+    
+    /**
+     * Validate request fields
+     *
+     * @return bool|string[]
+     */
+    public function validate()
+    {
+		$errors = [];
+		
+		if (!\Zend_Validate::is($this->getFirstname(), 'NotEmpty')) {
+			$errors[] = __('Firstname is required field.');
+		}
+		if (!\Zend_Validate::is($this->getLastname(), 'NotEmpty')) {
+			$errors[] = __('Lastname is required field.');
+		}	
+		if (!\Zend_Validate::is($this->getPhone(), 'NotEmpty')) {
+			$errors[] = __('Phone is required field.');
+		}	
+        return empty($errors) ? true : $errors;		
+	}	    	
 }
