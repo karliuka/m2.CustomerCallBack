@@ -40,17 +40,17 @@ class Data extends AbstractHelper
     const XML_EMAIL_SEND = 'promo/customercallback/send';
     
     /**
-     * Recipient email address
+     * Recipient email address config path
      */
     const XML_EMAIL_RECIPIENT = 'promo/customercallback/recipient';
     
     /**
-     * Sender email
+     * Sender email config path
      */    
     const XML_EMAIL_SENDER = 'promo/customercallback/sender';
     
     /**
-     * Email template
+     * Email template config path
      */
     const XML_EMAIL_TEMPLATE = 'promo/customercallback/template';
                   
