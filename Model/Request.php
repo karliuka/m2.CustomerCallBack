@@ -67,7 +67,6 @@ class Request extends AbstractModel implements IdentityInterface
 	
     /**
      * Model cache tag for clear cache in after save and after delete
-     *
      * When you use true - all cache will be clean
      *
      * @var string|array|bool
